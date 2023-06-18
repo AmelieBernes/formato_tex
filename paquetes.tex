@@ -1,0 +1,230 @@
+%%%% Mis paquetes %%%%
+\usepackage[utf8]{inputenc}
+\usepackage{comment} %para comentar párrafos largos
+						
+
+				
+\usepackage[most]{tcolorbox} %para encerrar texto en cajas de colores
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage{mathtools}% http://ctan.org/pkg/mathtool
+\usepackage{amsthm, amsmath, bm} 
+
+%\usepackage{bbding} %para fuentes de flores:) no funciona...
+
+\usepackage{subcaption, threeparttable}
+\usepackage{graphicx} 
+\graphicspath{{./imagenes}}
+\DeclareCaptionFormat{custom}
+{
+    \textbf{#1#2}\textit{\small #3}
+}
+\captionsetup{format=custom}
+\usepackage[font=small,labelfont=bf]{caption} %para que los nombres 'Figura x' estén en negritas.
+
+%Para rotar imágenes:
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+
+\usepackage{tabularx} %sí lo uso?
+
+\usepackage{empheq}
+
+
+\allowdisplaybreaks %Para que environments align muy largos
+%sean puestos en dos páginas, sin necesidad de hacer breaks para que queden
+%en una sola.
+
+%Gilles C. paquetes para imagenes con Inkscape
+%\usepackage{import}
+%\usepackage{xifthen}
+%\usepackage{pdfpages}
+%\usepackage{transparent}
+
+%\newcommand{\incfig}[1]{%
+%    \def\svgwidth{\columnwidth}
+%    \import{./imagenes}{#1.pdf_tex}}
+
+
+\usepackage{marginnote} %Para escribir en los márgenes
+%IMPORTANTE: sidenotes no son aceptadas dentro de ambientes de thmbox, pero marginnotes sí!
+
+\usepackage{xcolor, color, soul}
+\DeclareRobustCommand{\hlAME}[2]{{\sethlcolor{#1}\hl{#2}}}
+
+%mis colores
+\definecolor{ameMorado}{HTML}{816780}
+\definecolor{ameDorado}{HTML}{e4bc8c}
+\definecolor{ameRosa}{HTML}{FF69B4}
+\definecolor{ameAzul}{HTML}{41BBE0}
+
+\definecolor{ameVerde}{HTML}{9acd32}
+\definecolor{ameCyanO}{HTML}{008b8b}
+\definecolor{ameGris}{HTML}{778899}
+
+\usepackage{tikz}
+\usepackage[toc,page]{appendix}  
+\usepackage{enumerate}
+\usepackage{lscape} %Para tablas horizontales.
+\usepackage{verbatim}
+
+\usepackage{url}
+
+%Bilbiografía
+\usepackage[backend=bibtex,style=alphabetic]{biblatex}
+\addbibresource{Referencias.bib}
+
+
+%\usepackage{natbib} %no me funciona.
+%\usepackage{chngcntr}
+%\counterwithin{equation}{section}
+
+
+%Para escribir pseudocódigo
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\code}[1]{\texttt{#1}}
+%\swapnumbers %Para tener un solo contador para TODOS los 'equation' environment.
+
+
+\usepackage{amssymb}
+\usepackage{mdframed} %Símbolos en cajas
+\usepackage{amsmath} %it is best to load this package if doing any serious mathematical layout with LaTeX
+\usepackage{cases}
+\usepackage{bm} %Bold math text
+\usepackage{marvosym}
+\usepackage{fancyref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{imakeidx} 
+\usepackage{scalerel}
+
+%Paquetes usados en estilo.tex
+\usepackage{geometry}
+\usepackage{sidenotes} 
+\usepackage[font=footnotesize,format=plain,labelfont={bf,sf},textfont={it},width=10pt]{caption}
+% Captions at the side of the page
+%\usepackage[wide]{sidecap}
+\usepackage{morefloats}
+\usepackage{marginfix}
+
+\usepackage[colorlinks = true,linkcolor = violet, citecolor = blue]{hyperref}
+\usepackage{subfiles} % Best loaded last in the preamble
+
+%%%% Mis macros %%%%
+
+%% Secciones:
+%Pongo a todas el contador de 'teo'
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuentes: %https://tex.stackexchange.com/questions/513107/what-is-this-fancy-theorem-environment 
+%https://tex.stackexchange.com/questions/521597/how-to-spare-selected-theorems-from-thmbox-styles
+%NOTA: Dentro de un ambiente de teorema que use el paquete thmbox, NO puedes usar sidenotes, footnotes ni imágenes.
+
+%\usepackage{amsthm} %Creo que ya lo definí antes.
+
+
+\let\newemptytheorem\newtheorem
+\usepackage{thmbox}
+
+\newemptytheorem{ejemplo}{Ejemplo}
+
+
+			\newtheorem[M]{teo}{Teorema}[section]
+			%Pongo a todas el contador de 'teo'
+			\newtheorem[M]{listaObj}[teo]{Lista de deseos}
+			\newtheorem[M]{preg}[teo]{Pregunta}
+			\newtheorem[M]{lema}[teo]{Lema}
+			\newtheorem[M]{hip}[teo]{Hipótesis}
+			\newtheorem[M]{prop}[teo]{Proposición}
+			\newtheorem[M]{obs}[teo]{Observación}
+			\newtheorem[M]{cor}[teo]{Corolario}
+			\newtheorem[M]{defi}[teo]{Definición}
+			\newtheorem[M]{notacion}[teo]{Notación}
+			\newtheorem[M]{nota}[teo]{Nota}
+			\newtheorem{pregunta}{Pregunta}
+
+
+
+%Ambientes de teorema antiguos.
+%			\newtheorem{teo}{Teorema}[section]
+%			%Pongo a todas el contador de 'teo'
+%			\newtheorem{listaObj}[teo]{Lista de objetivos}
+%			\newtheorem{lema}[teo]{Lema}
+%			\newtheorem{prop}[teo]{Proposición}
+%			\newtheorem{obs}[teo]{Observación}
+%			\newtheorem{cor}[teo]{Corolario}
+%			\newtheorem{defi}[teo]{Definición}
+%			\newtheorem{notacion}[teo]{Notación}
+%			\newtheorem{nota}[teo]{Nota}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+			%% Símbolos matemáticos
+			
+			\newcommand{\demostracion}{\textbf{Demostración.} \hspace*{0.1cm}}
+			\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}%
+			\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}%
+			
+			\newcommand{\TODO}[1]{\textcolor{purple}{#1}}
+			\newcommand{\bien}[1]{\textcolor{blue}{Revisado.}}
+			
+			\newcommand*{\final}{\null\nobreak\hfill\ensuremath{\diamond}}
+			\newcommand{\IR}{\mathbb{R}}
+			\newcommand{\IC}{\mathbb{C}}
+			\newcommand{\IN}{\mathbb{N}}
+			\newcommand{\IP}{\mathbb{P}}
+			\newcommand{\IZ}{\mathbb{Z}}
+
+			\newcommand{\La}{\Lambda}		
+			\newcommand{\Tau}{\mathrm{T}}		
+			
+			\newcommand{\suma}[3]{\sum\limits_{#1}^{#2}#3} %Sumas y series
+			\newcommand{\union}[3]{\bigcup\limits_{#1}^{#2}{#3}} %uniones
+			\newcommand{\producto}[3]{\prod_{#1}^{#2}{#3}} %productos
+			\newcommand{\limite}[2]{\lim\limits_{#1}{#2}} %límites
+			\newcommand{\limsu}[2]{\lim\limits_{#1 \rightarrow \infty }#2_{#1}}
+			%para límites de sucesiones
+			\newcommand{\Om}{\Omega}
+			\newcommand{\cali}[1]{\mathcal{#1}} %Letras caligráficas
+			\newcommand{\cont}[2]{$\mathcal{C} [#1, #2]$}
+			\newcommand{\integ}[3]{\int_{#1}^{#2}{#3}}
+			\newcommand{\ldos}{\mathit{l}^{2}}
+
+
+			\DeclareMathOperator*{\ameboxplus}{{\boxplus}}
+
+
+
+%macros Moisés
+\newcommand{\aplica}[5]{\text{${\begin{array}{crcl} #1: & #2 & \longrightarrow & #3 \\ \, & #4 & \longmapsto & #5 \end{array}}$}} %Notación para la definición de una aplicación.
+\newcommand{\demo}[1]{\textbf{Demostración:} #1 \nopagebreak[4] $\square$ \\}
+			
+			
+%Source: https://tex.stackexchange.com/questions/68010/how-to-create-multilevel-colored-boxes-using-tcolorbox-any-other-package
+\makeatletter
+\newcommand{\DrawLine}{%
+  \begin{tikzpicture}
+  \path[use as bounding box] (0,0) -- (\linewidth,0);
+  \draw[color=black,dashed,dash phase=2pt]
+        (0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+        (\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+  \end{tikzpicture}%
+  }
+\makeatother
+
+
+
+
+%%%% Datos generales del archivo %%%%
+\author{Amélie Bernès}

@@ -1,0 +1,18 @@
+\documentclass[a4paper,oneside,11pt]{extreport} 
+
+\input{paquetes}
+\input{estilo}
+
+
+\begin{document}
+
+\pagenumbering{gobble} %no number page
+\tableofcontents
+\newpage 
+%-- Cuerpo
+\pagenumbering{arabic} %numbering pages again.
+
+\input{ejemplo_input.tex}
+
+%\printbibliography
+\end{document}
